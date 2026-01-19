@@ -14,7 +14,7 @@ public class PostMessageListener {
 
     private final PostService postService;
 
-    @RabbitListener(queues = RabbitMQConfig.QUEUE_NAME_POST_PROCESSING, concurrency = "2-3")
+    @RabbitListener(queues = RabbitMQConfig.QUEUE_NAME_POST_PROCESSED, concurrency = "2-3")
     public void onPostProcessed(@Payload final PostProcessedMessage message) {
         final Post post = Post.builder()
                 .wordCount(message.getWordCount())

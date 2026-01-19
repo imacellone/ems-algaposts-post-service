@@ -18,3 +18,16 @@ spring:
       enabled: true
       settings:
         web-allow-others: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: rabbitmq
+    password: rabbitmq
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 3
+          multiplier: 2
+          initial-interval: 10s
+          max-interval: 20s
